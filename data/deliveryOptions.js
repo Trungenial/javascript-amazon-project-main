@@ -27,3 +27,18 @@ export function getDeliveryOption(deliveryOptionId) {
 
   return deliveryOption || deliveryOptions[0];
 }
+
+export function getDeliveryDateString(deliveryOption) {
+  const today = dayjs();
+  let deliveryDate = today.add(deliveryOption.deliveryDays, "days");
+  const checkDayString = deliveryDate.format("dddd");
+
+  if (checkDayString === "Sunday") {
+    deliveryDate = today.add(deliveryOption.deliveryDays + 2, "days");
+  } else if (checkDayString === "Sunday") {
+    deliveryDate = today.add(deliveryOption.deliveryDays + 1, "days");
+  }
+  let dateString = deliveryDate.format("dddd, MMMM, D");
+
+  return dateString;
+}
