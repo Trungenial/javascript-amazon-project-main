@@ -4,6 +4,8 @@ import { formatCurrency } from "./utils/money.js";
 
 loadProducts(renderProductGrid);
 
+console.log(renderProductGrid);
+
 function renderProductGrid() {
   let productsHTML = "";
 
